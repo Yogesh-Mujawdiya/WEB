@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nitt Info</title>
+    <link rel = "stylesheet" type = "text/css" href = "style.css" />
+    <link rel="icon" href="assect/Logo.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body onload="LoadData()">
+    <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'Audio')">Audio Player</button>
+        <button class="tablinks" onclick="openCity(event, 'Video')">Video Player</button>
+        <button class="tablinks" onclick="openCity(event, 'Data')">Student Data</button>
+    </div>
+    <div id="Audio" class="tabcontent">
+    <audio id="AudioData" controls>
+        <source id="audio_here"  src="horse.mp3" type="audio/mpeg">
+    </audio><br>
+    <input type="file" name="file[]" class="file_multi_audio" accept="audio/*">
+    </div>
+    
+    <div id="Video" class="tabcontent">
+    <video width="800" controls>
+        <source src="mov_bbb.mp4" id="video_here">
+    </video><br>
+    <input type="file" name="file[]" class="file_multi_video" accept="video/*">
+    </div>
+      
+    <div id="Data" class="tabcontent">
+        <form action="addStudent.jsp" method="POST" class="MYForm">
+            <h1>Add Student </h1>
+            <table>
+                <tr>
+                    <th><label for="rollNo">Roll No </label></th>
+                    <td><input style="width: 160px;" type="number" name="rollNo" id="rollNo" required/></td>
+                    <th><label for="branch">Branch</label></th>
+                    <td><input style="width: 160px;" type="text" id="branch" name="branch" required/></td>
+                    <th><label for="department">Department</label></th>
+                    <td><input style="width: 160px;" type="text" id="department" name="department" required/></td>
+                </tr>
+                <tr>
+                    <th><label for="firstName">First Name</label></th>
+                    <td><input style="width: 160px;" type="text" name="firstName" id="firstName" required/></td>
+                    <th><label for="lastName">Last Name</label></th>
+                    <td><input style="width: 160px;" type="text" name="lastName" id="lastName"/></td>
+                    <th><label for="contact">Contact No.</label></th>
+                    <td><input style="width: 160px;" type="text" id="contact" name="contact" required/></td>
+                </tr>
+                <tr>
+                    <th><label for="email">Email</label></th>
+                    <td><input style="width: 160px;" type="email" id="email" name="email" placeholder="example@nitt.edu" required/></td>
+                    <th><label for="dob">Date Of Birth</label></th>
+                    <td><input style="width: 160px;" type="date" id="dob"  name="dob" required/></td>
+                    <th><label for="gender">Gender</th>
+                    <td>
+                        <input type="radio" id="Male" name="gender" value="M" required/>
+                        <label for="Male">Male</label>
+                        <input type="radio" id="Female" name="gender" value="F" required/>
+                        <label for="Female">Female</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6" style="text-align: center;"><button type="submit"> Submit</button></td>
+                </tr>
+            </table>
+        </form>
+        <div class="AllStudent" >
+            <table id="Students" class="StudentTable" border="1">
+                <tr>
+                    <th>Roll No.</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Gender</th>
+                    <th>DOB</th>
+                    <th>Email</th>
+                    <th>Branch</th>
+                    <th>Department</th>
+                    <th>Mobile No</th>
+                </tr>
+            </table>
+        </div>
+        <button onclick="SaveData()">Save Data In XML</button>
+    </div>
+</body>
+<script type="text/javascript" src="script.js"></script>
+</html>
